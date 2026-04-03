@@ -72,16 +72,16 @@ body{font-family:'Inter',sans-serif;background:var(--b);color:var(--w);min-heigh
 </style></head><body>
 <div class="hd"><div class="hd-l"><div class="logo">A</div><div><h1>A Fund Solution — Command Center</h1><div class="hd-sub">Infrastructure &amp; Build Progress</div></div></div><div class="hd-r"><div class="lu">Updated <strong id="ud"></strong></div><div class="score"><div class="lb">Overall</div><div class="vl" id="os">—</div></div></div></div>
 <div class="fl" id="fl"></div><div class="grid" id="gr"></div>
-<div class="ft">A Fund Solution &copy; 2026 — Command Center v2.0</div>
+<div class="ft">A Fund Solution &copy; 2026 — Command Center v2.1</div>
 <script>const W=[
 {id:'portal',title:'AFS Portal',tag:'Active',tc:'ta',p:85,cat:'Platform',
 desc:'Core web app for credit restoration — MVP nearly complete. 13 page modules built, 44 API endpoints, 18-table SQLite database, full auth system. Needs external integrations and production deployment.',
 items:[{d:1,t:'GitHub repo created & connected'},{d:1,t:'Backend API — 44 endpoints operational (app.py, 1,619 lines)'},{d:1,t:'Database — 18 tables with seed data (database.py, 985 lines)'},{d:1,t:'Frontend SPA — 13 page modules (13,160+ lines JS)'},{d:1,t:'Auth system — login, register, forgot password, 3 roles'},{d:1,t:'FCRA dispute letter generator (letter_generator.py)'},{d:1,t:'Professional CSS styling (3,188 lines)'},{d:0,t:'Integrate payment processing (Stripe)'},{d:0,t:'Add email/SMS notifications (SendGrid)'},{d:0,t:'Connect real credit bureau APIs'},{d:0,t:'Deploy to production (Vercel + backend host)'}],
 blocker:null,next:'Deploy to production, then integrate Stripe payments and SendGrid email.'},
-{id:'fundz-ai',title:'FUNDZ AI Agent (OpenClaw)',tag:'Blocked',tc:'tb',p:70,cat:'AI',
-desc:'AI-powered assistant for client interactions. System prompt written and tuned, OpenClaw installed, agent config complete. Blocked on Apple ID iMessage authorization.',
-items:[{d:1,t:'System prompt written & tuned'},{d:1,t:'OpenClaw installed & configured'},{d:1,t:'Agent config completed'},{d:0,t:'Resolve Apple ID iMessage authorization',b:1},{d:0,t:'Test iMessage delivery with test account'},{d:0,t:'Go live & monitor'}],
-blocker:'Apple ID iMessage authorization failing — blocks all message delivery and live deployment.',next:'Fix Apple ID auth → test iMessage delivery → deploy to production.'},
+{id:'fundz-ai',title:'FUNDZ AI Agent (OpenClaw)',tag:'Active',tc:'ta',p:80,cat:'AI',
+desc:'AI-powered assistant for client interactions via iMessage. OpenClaw installed, agent config complete, Apple ID auth resolved. System prompt refined for full-funnel coverage (lead conversion + client support). Ready for testing.',
+items:[{d:1,t:'OpenClaw installed & configured'},{d:1,t:'Agent config completed'},{d:1,t:'Apple ID iMessage authorization resolved'},{d:1,t:'System prompt refined — full-funnel (sales + support)'},{d:0,t:'Test iMessage delivery with test account'},{d:0,t:'Go live & monitor'}],
+blocker:null,next:'Paste refined prompt into OpenClaw → test iMessage delivery → go live.'},
 {id:'clawbot',title:'Clawbot (Slack QC)',tag:'In Progress',tc:'ti',p:20,cat:'Automation',
 desc:'Quality-control bot for Slack. Workspace exists and system is designed, but 3 core documents must be written before Runbear can be deployed.',
 items:[{d:1,t:'Slack workspace created'},{d:1,t:'System scoped & designed'},{d:0,t:'Write Training Manual document'},{d:0,t:'Write Jay/Lucy SOP document'},{d:0,t:'Write Three Round Framework document'},{d:0,t:'Deploy Runbear to Slack'},{d:0,t:'Configure webhooks & bot tokens'}],
