@@ -2,71 +2,126 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AFS HQ">
 <meta name="theme-color" content="#0A0A0A">
+<meta name="description" content="A Fund Solution Command Center">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23C8A84E' rx='20' width='100' height='100'/><text x='50' y='68' font-size='60' font-family='serif' font-weight='bold' fill='%230A0A0A' text-anchor='middle'>A</text></svg>">
 <title>AFS Command Center</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--g:#C8A84E;--gl:#E8D48B;--gd:#A68A3E;--b:#0A0A0A;--bc:#111;--w:#F5F5F5;--wd:#999;--gr:#34D399;--y:#FBBF24;--r:#F87171;--p:#A78BFA}
-body{font-family:'Inter',sans-serif;background:var(--b);color:var(--w);min-height:100vh}
-.hd{padding:24px 32px;border-bottom:1px solid rgba(200,168,78,.15);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.hd-l{display:flex;align-items:center;gap:12px}
-.logo{width:44px;height:44px;background:linear-gradient(135deg,var(--g),var(--gd));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--b)}
-.hd h1{font-family:'Playfair Display',serif;font-size:22px;background:linear-gradient(135deg,var(--gl),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hd-sub{font-size:12px;color:var(--wd)}
-.score{background:rgba(200,168,78,.08);border:1px solid rgba(200,168,78,.2);border-radius:10px;padding:8px 16px;text-align:center}
+:root{--g:#C8A84E;--gl:#E8D48B;--gd:#A68A3E;--b:#0A0A0A;--bc:#111;--w:#F5F5F5;--wd:#999;--gr:#34D399;--y:#FBBF24;--r:#F87171;--bl:#60A5FA;--p:#A78BFA}
+body{font-family:'Inter',sans-serif;background:var(--b);color:var(--w);min-height:100vh;overflow-x:hidden}
+.hd{padding:32px 48px 24px;border-bottom:1px solid rgba(200,168,78,.15);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.hd-l{display:flex;align-items:center;gap:16px}
+.logo{width:48px;height:48px;background:linear-gradient(135deg,var(--g),var(--gd));border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--b)}
+.hd h1{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;background:linear-gradient(135deg,var(--gl),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hd-sub{font-size:13px;color:var(--wd);margin-top:2px}
+.hd-r{display:flex;align-items:center;gap:20px}
+.lu{font-size:12px;color:var(--wd)}
+.score{background:rgba(200,168,78,.08);border:1px solid rgba(200,168,78,.2);border-radius:12px;padding:10px 20px;text-align:center}
 .score .lb{font-size:10px;color:var(--wd);text-transform:uppercase;letter-spacing:1px}
-.score .vl{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--g)}
-.fl{padding:12px 32px;display:flex;gap:6px;flex-wrap:wrap}
-.fb{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--wd);padding:6px 14px;border-radius:8px;font-size:12px;cursor:pointer}
-.fb:hover,.fb.a{background:rgba(200,168,78,.12);border-color:var(--g);color:var(--g)}
-.gr{padding:16px 32px 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
-.cd{background:var(--bc);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:20px;cursor:pointer;position:relative;overflow:hidden;transition:all .2s}
-.cd::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g),var(--gd));opacity:0;transition:opacity .2s}
-.cd:hover{border-color:rgba(200,168,78,.25);transform:translateY(-2px)}.cd:hover::before{opacity:1}
-.cd.ex{grid-column:1/-1}
-.ct{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
-.cn{font-size:15px;font-weight:600}.tg{font-size:10px;font-weight:500;padding:3px 8px;border-radius:5px;text-transform:uppercase;white-space:nowrap}
-.tb{background:rgba(248,113,113,.12);color:var(--r)}.ti{background:rgba(251,191,36,.12);color:var(--y)}.tn{background:rgba(255,255,255,.06);color:var(--wd)}.ta{background:rgba(52,211,153,.12);color:var(--gr)}.ts{background:rgba(167,139,250,.12);color:var(--p)}
-.pw{margin-bottom:10px}.ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
-.pp{font-size:20px;font-weight:700;color:var(--g);font-family:'Playfair Display',serif}.pl{font-size:11px;color:var(--wd)}
-.pb{height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
-.pf{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gd),var(--g),var(--gl));transition:width .8s cubic-bezier(.22,1,.36,1);width:0}
-.ds{font-size:12px;color:var(--wd);line-height:1.5;margin-bottom:12px}
-.cl{display:none;margin-top:12px;border-top:1px solid rgba(255,255,255,.06);padding-top:12px}
-.cd.ex .cl{display:block}
-.ci{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:12px;color:var(--wd)}
-.ci.dn .tx{color:rgba(255,255,255,.35);text-decoration:line-through}
-.ic{width:14px;height:14px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);flex-shrink:0}
-.ci.dn .ic{border-color:var(--gr);background:var(--gr)}
-.ci.bk .ic{border-color:var(--r)}
-.bx{margin-top:10px;background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.15);border-radius:8px;padding:10px 12px;font-size:11px;color:var(--r);line-height:1.4}
-.nx{margin-top:8px;background:rgba(200,168,78,.06);border:1px solid rgba(200,168,78,.15);border-radius:8px;padding:10px 12px;font-size:11px;color:var(--gl);line-height:1.4}
-.ft{padding:20px 32px;border-top:1px solid rgba(255,255,255,.04);text-align:center;font-size:10px;color:rgba(255,255,255,.2)}
-.cd{animation:fu .4s ease both}
-@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:768px){.hd{padding:16px;flex-direction:column;align-items:flex-start}.hd h1{font-size:17px}.fl{padding:10px 16px}.gr{padding:12px 16px 28px;grid-template-columns:1fr;gap:12px}.cd.ex{grid-column:1}.ft{padding:16px}}
-@media(hover:none){.cd:active{transform:scale(.98);border-color:rgba(200,168,78,.3)}.cd:active::before{opacity:1}}
-</style>
-</head>
-<body>
-<div class="hd"><div class="hd-l"><div class="logo">A</div><div><h1>A Fund Solution &mdash; Command Center</h1><div class="hd-sub">Infrastructure &amp; Build Progress</div></div></div><div style="display:flex;align-items:center;gap:16px"><div style="font-size:11px;color:#999">Updated <strong id="ud"></strong></div><div class="score"><div class="lb">Overall</div><div class="vl" id="os">&mdash;</div></div></div></div>
-<div class="fl" id="fl"></div><div class="gr" id="gr"></div>
-<div class="ft">A Fund Solution &copy; 2026 &mdash; Command Center v1.0</div>
-<script>
-const W=[{id:'portal',t:'AFS Portal',tg:'In Progress',tc:'ti',p:18,cat:'Platform',d:'Core web app for credit restoration. Infra set up (GitHub, Vercel, Supabase) but no pages built yet.',items:[{dn:1,x:'GitHub repo created'},{dn:1,x:'Vercel configured'},{dn:1,x:'Supabase + env vars set'},{x:'Push skeleton to repo'},{x:'Build login screen'},{x:'Build client dashboard'},{x:'Build admin panel'},{x:'Build affiliate portal'}],bl:null,nx:'Push skeleton code, then build login + dashboard.'},{id:'fundz',t:'FUNDZ AI Agent (OpenClaw)',tg:'Blocked',tc:'tb',p:70,cat:'AI',d:'AI agent for client interactions. System prompt + config done. Blocked on Apple ID auth.',items:[{dn:1,x:'System prompt written'},{dn:1,x:'OpenClaw installed'},{dn:1,x:'Config completed'},{x:'Fix Apple ID iMessage auth',bk:1},{x:'Go live & test'}],bl:'Apple ID iMessage authorization must be resolved.',nx:'Fix auth > test iMessage > launch.'},{id:'claw',t:'Clawbot (Slack QC)',tg:'In Progress',tc:'ti',p:20,cat:'Automation',d:'QC bot for Slack. Workspace exists, key docs and Runbear deployment pending.',items:[{dn:1,x:'Slack workspace created'},{dn:1,x:'System scoped'},{x:'Training Manual'},{x:'Jay/Lucy SOP'},{x:'Three Round Framework'},{x:'Deploy Runbear'}],bl:null,nx:'Write 3 core docs, deploy Runbear.'},{id:'ghl',t:'GHL Workflows',tg:'In Progress',tc:'ti',p:35,cat:'Automation',d:'GoHighLevel workflows for leads & onboarding. 3 exist but need audit.',items:[{dn:1,x:'New Lead workflow'},{dn:1,x:'Onboarding workflow'},{dn:1,x:'Payment Received workflow'},{x:'Audit all 3 workflows'},{x:'Fix pipeline logic'},{x:"Lucy's build doc"}],bl:'Clients not getting messages, pipeline not updating.',nx:'Full audit > fix triggers > Lucy build doc.'},{id:'skills',t:'Claude Skills',tg:'Active',tc:'ta',p:60,cat:'AI',d:'4 skills installed. Custom AFS credit repair skill scoped but not built.',items:[{dn:1,x:'4 base skills installed'},{dn:1,x:'Integrated with Cowork'},{dn:1,x:'Credit repair skill scoped'},{x:'Build credit repair skill'},{x:'Test & iterate'}],bl:null,nx:'Build credit repair skill, test on real scenarios.'},{id:'avatar',t:'Avatar Video System',tg:'Scoped',tc:'ts',p:5,cat:'Content',d:'AI avatar videos. 6 scripts outlined, HeyGen selected.',items:[{dn:1,x:'HeyGen selected'},{dn:1,x:'6 scripts outlined'},{x:'Finalize scripts'},{x:'Generate videos'},{x:'Embed in platform'}],bl:null,nx:'Finalize scripts > first HeyGen video.'},{id:'trade',t:'Tradeline Store',tg:'Not Started',tc:'tn',p:0,cat:'Platform',d:'Tradeline marketplace. Discussed, not started.',items:[{x:'Data model & pricing'},{x:'Store UI'},{x:'Order flow & payments'},{x:'Admin panel'}],bl:null,nx:'Depends on portal. Scope after dashboard is live.'},{id:'standup',t:'Daily Standup (Jay+Lucy)',tg:'Not Started',tc:'tn',p:0,cat:'Automation',d:'Automated Slack standups for Jay and Lucy AI.',items:[{x:'Define format'},{x:'Build bot'},{x:'Connect data sources'},{x:'Deploy to Slack'}],bl:null,nx:'Depends on Clawbot. Scope after Runbear deployed.'}];
-document.getElementById('ud').textContent=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-const tp=W.reduce((s,w)=>s+w.p,0),op=Math.round(tp/W.length);document.getElementById('os').textContent=op+'%';
-const cats=['All',...new Set(W.map(w=>w.cat))],fl=document.getElementById('fl');
-cats.forEach(c=>{const b=document.createElement('button');b.className='fb'+(c==='All'?' a':'');b.textContent=c;b.onclick=()=>{document.querySelectorAll('.fb').forEach(x=>x.classList.remove('a'));b.classList.add('a');render(c)};fl.appendChild(b)});
-function render(f){const g=document.getElementById('gr');g.innerHTML='';(f==='All'?W:W.filter(w=>w.cat===f)).forEach((w,i)=>{const c=document.createElement('div');c.className='cd';c.style.animationDelay=i*.05+'s';
-const cl=w.items.map(it=>{const st=it.dn?'dn':(it.bk?'bk':'');return '<div class="ci '+st+'"><div class="ic"></div><span class="tx">'+it.x+'</span></div>'}).join('');
-c.innerHTML='<div class="ct"><div class="cn">'+w.t+'</div><span class="tg '+w.tc+'">'+w.tg+'</span></div><div class="pw"><div class="ph"><span class="pp">'+w.p+'%</span><span class="pl">'+w.cat+'</span></div><div class="pb"><div class="pf" data-t="'+w.p+'"></div></div></div><div class="ds">'+w.d+'</div><div class="cl">'+cl+(w.bl?'<div class="bx"><b>Blocker:</b> '+w.bl+'</div>':'')+(w.nx?'<div class="nx"><b>Next:</b> '+w.nx+'</div>':'')+'</div>';
-c.onclick=()=>c.classList.toggle('ex');g.appendChild(c)});
-requestAnimationFrame(()=>setTimeout(()=>document.querySelectorAll('.pf').forEach(b=>b.style.width=b.dataset.t+'%'),100))}
+.score .vl{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--g)}
+.fl{padding:16px 48px;display:flex;gap:8px;flex-wrap:wrap}
+.fb{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--wd);padding:7px 16px;border-radius:8px;font-size:13px;cursor:pointer;transition:all .2s}
+.fb:hover{background:rgba(200,168,78,.1);border-color:rgba(200,168,78,.3);color:var(--w)}
+.fb.active{background:rgba(200,168,78,.15);border-color:var(--g);color:var(--g)}
+.grid{padding:24px 48px 48px;display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:20px}
+.cd{background:var(--bc);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;transition:all .25s;cursor:pointer;position:relative;overflow:hidden}
+.cd::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g),var(--gd));opacity:0;transition:opacity .25s}
+.cd:hover{border-color:rgba(200,168,78,.25);transform:translateY(-2px)}
+.cd:hover::before{opacity:1}
+.cd.expanded{grid-column:1/-1}
+.ct{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.cn{font-size:17px;font-weight:600;color:var(--w);line-height:1.3}
+.tg{font-size:11px;font-weight:500;padding:4px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+.tb{background:rgba(248,113,113,.12);color:var(--r)}
+.ti{background:rgba(251,191,36,.12);color:var(--y)}
+.tn{background:rgba(255,255,255,.06);color:var(--wd)}
+.ta{background:rgba(52,211,153,.12);color:var(--gr)}
+.ts{background:rgba(167,139,250,.12);color:var(--p)}
+.pw{margin-bottom:14px}
+.ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.pp{font-size:22px;font-weight:700;color:var(--g);font-family:'Playfair Display',serif}
+.pl{font-size:12px;color:var(--wd)}
+.pb{height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.pf{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gd),var(--g),var(--gl));transition:width 1s cubic-bezier(.22,1,.36,1);width:0}
+.ds{font-size:13px;color:var(--wd);line-height:1.6;margin-bottom:16px}
+.cl{display:none;margin-top:16px;border-top:1px solid rgba(255,255,255,.06);padding-top:16px}
+.cd.expanded .cl{display:block}
+.ci{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:13px;color:var(--wd)}
+.ck{flex-shrink:0;margin-top:2px;width:16px;height:16px}
+.ck-d{color:var(--gr)}
+.ck-p{color:rgba(255,255,255,.15)}
+.ck-b{color:var(--r)}
+.ci.done .cx{color:rgba(255,255,255,.35);text-decoration:line-through}
+.cx{flex:1}
+.bx{margin-top:14px;background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.15);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--r);line-height:1.5}
+.bx strong{color:var(--r)}
+.nx{margin-top:12px;background:rgba(200,168,78,.06);border:1px solid rgba(200,168,78,.15);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--gl);line-height:1.5}
+.ft{padding:24px 48px;border-top:1px solid rgba(255,255,255,.04);text-align:center;font-size:11px;color:rgba(255,255,255,.2)}
+.cd{animation:fadeUp .5s ease both}
+.cd:nth-child(1){animation-delay:.05s}.cd:nth-child(2){animation-delay:.1s}.cd:nth-child(3){animation-delay:.15s}.cd:nth-child(4){animation-delay:.2s}.cd:nth-child(5){animation-delay:.25s}.cd:nth-child(6){animation-delay:.3s}.cd:nth-child(7){animation-delay:.35s}.cd:nth-child(8){animation-delay:.4s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){.hd{padding:20px 16px 16px;flex-direction:column;align-items:flex-start}.hd-l{gap:12px}.logo{width:40px;height:40px;font-size:18px}.hd h1{font-size:18px}.hd-sub{font-size:11px}.hd-r{width:100%;justify-content:space-between}.score{padding:8px 14px}.score .vl{font-size:22px}.fl{padding:12px 16px;gap:6px;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch}.fb{padding:6px 14px;font-size:12px;flex-shrink:0}.grid{padding:16px 16px 32px;grid-template-columns:1fr;gap:14px}.cd{padding:18px;border-radius:14px}.cd.expanded{grid-column:1}.cn{font-size:15px}.tg{font-size:10px;padding:3px 8px}.pp{font-size:18px}.ds{font-size:12px}.ci{font-size:12px;padding:6px 0}.bx,.nx{font-size:11px;padding:10px 12px}.ft{padding:20px 16px;font-size:10px}}
+@supports(padding:max(0px)){.hd{padding-top:max(20px,env(safe-area-inset-top))}.ft{padding-bottom:max(20px,env(safe-area-inset-bottom))}.hd,.fl,.grid,.ft{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}}
+@media(hover:none){.cd:active{transform:scale(.98);border-color:rgba(200,168,78,.3)}.cd:active::before{opacity:1}.fb:active{background:rgba(200,168,78,.15);color:var(--g)}}
+</style></head><body>
+<div class="hd"><div class="hd-l"><div class="logo">A</div><div><h1>A Fund Solution — Command Center</h1><div class="hd-sub">Infrastructure &amp; Build Progress</div></div></div><div class="hd-r"><div class="lu">Updated <strong id="ud"></strong></div><div class="score"><div class="lb">Overall</div><div class="vl" id="os">—</div></div></div></div>
+<div class="fl" id="fl"></div><div class="grid" id="gr"></div>
+<div class="ft">A Fund Solution &copy; 2026 — Command Center v2.0</div>
+<script>const W=[
+{id:'portal',title:'AFS Portal',tag:'Active',tc:'ta',p:85,cat:'Platform',
+desc:'Core web app for credit restoration — MVP nearly complete. 13 page modules built, 44 API endpoints, 18-table SQLite database, full auth system. Needs external integrations and production deployment.',
+items:[{d:1,t:'GitHub repo created & connected'},{d:1,t:'Backend API — 44 endpoints operational (app.py, 1,619 lines)'},{d:1,t:'Database — 18 tables with seed data (database.py, 985 lines)'},{d:1,t:'Frontend SPA — 13 page modules (13,160+ lines JS)'},{d:1,t:'Auth system — login, register, forgot password, 3 roles'},{d:1,t:'FCRA dispute letter generator (letter_generator.py)'},{d:1,t:'Professional CSS styling (3,188 lines)'},{d:0,t:'Integrate payment processing (Stripe)'},{d:0,t:'Add email/SMS notifications (SendGrid)'},{d:0,t:'Connect real credit bureau APIs'},{d:0,t:'Deploy to production (Vercel + backend host)'}],
+blocker:null,next:'Deploy to production, then integrate Stripe payments and SendGrid email.'},
+{id:'fundz-ai',title:'FUNDZ AI Agent (OpenClaw)',tag:'Blocked',tc:'tb',p:70,cat:'AI',
+desc:'AI-powered assistant for client interactions. System prompt written and tuned, OpenClaw installed, agent config complete. Blocked on Apple ID iMessage authorization.',
+items:[{d:1,t:'System prompt written & tuned'},{d:1,t:'OpenClaw installed & configured'},{d:1,t:'Agent config completed'},{d:0,t:'Resolve Apple ID iMessage authorization',b:1},{d:0,t:'Test iMessage delivery with test account'},{d:0,t:'Go live & monitor'}],
+blocker:'Apple ID iMessage authorization failing — blocks all message delivery and live deployment.',next:'Fix Apple ID auth → test iMessage delivery → deploy to production.'},
+{id:'clawbot',title:'Clawbot (Slack QC)',tag:'In Progress',tc:'ti',p:20,cat:'Automation',
+desc:'Quality-control bot for Slack. Workspace exists and system is designed, but 3 core documents must be written before Runbear can be deployed.',
+items:[{d:1,t:'Slack workspace created'},{d:1,t:'System scoped & designed'},{d:0,t:'Write Training Manual document'},{d:0,t:'Write Jay/Lucy SOP document'},{d:0,t:'Write Three Round Framework document'},{d:0,t:'Deploy Runbear to Slack'},{d:0,t:'Configure webhooks & bot tokens'}],
+blocker:null,next:'Produce the three core documents, then deploy Runbear to Slack.'},
+{id:'ghl',title:'GHL Workflows',tag:'Blocked',tc:'tb',p:35,cat:'Automation',
+desc:'GoHighLevel workflows for leads & onboarding. 3 workflows created but messages not reaching clients and pipeline not updating. Needs full audit.',
+items:[{d:1,t:'New Lead workflow created'},{d:1,t:'Onboarding workflow created'},{d:1,t:'Payment Received workflow created'},{d:0,t:'Audit all 3 workflows — fix message delivery',b:1},{d:0,t:'Fix pipeline update logic',b:1},{d:0,t:"Create Lucy's build documentation"},{d:0,t:'Test with sample leads end-to-end'}],
+blocker:'Clients not receiving messages and pipeline not updating. Full GHL audit required.',next:'Audit triggers and actions in all 3 workflows → fix messaging → test with sample leads.'},
+{id:'skills',title:'Claude Skills',tag:'Active',tc:'ta',p:60,cat:'AI',
+desc:'10 skills installed and integrated with Cowork (beautiful-prose, viral-content, humanizer, skill-creator, pdf, pptx, xlsx, docx, schedule, creative-director). Custom AFS credit repair skill scoped but not yet built.',
+items:[{d:1,t:'10 skills installed & operational'},{d:1,t:'Skills integrated with Cowork environment'},{d:1,t:'AFS credit repair skill scoped'},{d:0,t:'Build custom AFS credit repair skill'},{d:0,t:'Test skill against real client scenarios'},{d:0,t:'Iterate on output quality'}],
+blocker:null,next:'Build the custom credit repair skill with dispute letter generation and score improvement recommendations.'},
+{id:'avatar',title:'Avatar Video System',tag:'Scoped',tc:'ts',p:5,cat:'Content',
+desc:'AI avatar videos for client education and marketing. HeyGen selected, 6 scripts outlined across 4 use cases. Scripts need finalization before generation.',
+items:[{d:1,t:'HeyGen selected as platform'},{d:1,t:'6 video scripts outlined (4 use cases)'},{d:0,t:'Finalize scripts for recording'},{d:0,t:'Generate first avatar video in HeyGen'},{d:0,t:'Build video player component'},{d:0,t:'Embed into Education Center & marketing funnels'}],
+blocker:null,next:'Finalize video scripts → generate first avatar video in HeyGen.'},
+{id:'tradeline',title:'Tradeline Store',tag:'In Progress',tc:'ti',p:60,cat:'Platform',
+desc:'Tradeline marketplace — more built than expected. Frontend page (331 lines), backend API (CRUD + request endpoints), database table with 5 seed products, admin panel all exist. Needs payment integration.',
+items:[{d:1,t:'Store UI built — filtering, sorting, request modals'},{d:1,t:'Backend API — GET, POST, request endpoints operational'},{d:1,t:'Database table with 5 seed tradeline products'},{d:1,t:'Admin management panel'},{d:0,t:'Define pricing strategy & tiers'},{d:0,t:'Integrate payment processing (Stripe)'},{d:0,t:'Build approval workflow & legal compliance'}],
+blocker:null,next:'Define pricing tiers, then integrate Stripe payment flow.'},
+{id:'standup',title:'Daily Standup (Jay+Lucy)',tag:'Not Started',tc:'tn',p:0,cat:'Automation',
+desc:'Automated daily standup reports in Slack for Jay and Lucy AI personas. Hard dependency on Clawbot/Runbear being deployed first.',
+items:[{d:0,t:'Define standup format & cadence'},{d:0,t:'Define Jay and Lucy personas & tone'},{d:0,t:'Build scheduled bot / standup task'},{d:0,t:'Connect to project data sources'},{d:0,t:'Deploy to Slack channel & test'}],
+blocker:'Blocked by Clawbot — Runbear must be deployed to Slack before standup automation can begin.',next:'Wait for Clawbot/Runbear deployment, then define standup format and personas.'}
+];const g=document.getElementById('gr'),f=document.getElementById('fl'),o=document.getElementById('os'),u=document.getElementById('ud');
+u.textContent=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+const tp=W.reduce((s,w)=>s+w.p,0),op=Math.round(tp/W.length);o.textContent=op+'%';
+const cats=['All',...new Set(W.map(w=>w.cat))];
+cats.forEach(c=>{const b=document.createElement('button');b.className='fb'+(c==='All'?' active':'');b.textContent=c;b.onclick=()=>{document.querySelectorAll('.fb').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(c)};f.appendChild(b)});
+function render(fl){g.innerHTML='';const items=fl==='All'?W:W.filter(w=>w.cat===fl);
+items.forEach(w=>{const c=document.createElement('div');c.className='cd';
+const cl=w.items.map(i=>{const s=i.d?'done':(i.b?'blocked':'pending');
+const ic={done:'<svg class="ck ck-d" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4"/></svg>',
+pending:'<svg class="ck ck-p" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="7"/></svg>',
+blocked:'<svg class="ck ck-b" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="7"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg>'};
+return '<div class="ci '+s+'">'+ic[s]+'<span class="cx">'+i.t+'</span></div>'}).join('');
+const bl=w.blocker?'<div class="bx"><strong>Blocker:</strong> '+w.blocker+'</div>':'';
+const nx=w.next?'<div class="nx"><strong>Next up:</strong> '+w.next+'</div>':'';
+c.innerHTML='<div class="ct"><div class="cn">'+w.title+'</div><span class="tg '+w.tc+'">'+w.tag+'</span></div><div class="pw"><div class="ph"><span class="pp">'+w.p+'%</span><span class="pl">'+w.cat+'</span></div><div class="pb"><div class="pf" style="width:0" data-target="'+w.p+'"></div></div></div><div class="ds">'+w.desc+'</div><div class="cl">'+cl+bl+nx+'</div>';
+c.onclick=()=>c.classList.toggle('expanded');g.appendChild(c)});
+requestAnimationFrame(()=>{setTimeout(()=>{document.querySelectorAll('.pf').forEach(b=>{b.style.width=b.dataset.target+'%'})},100)})}
 render('All');
-</script>
-</body>
-</html>
+</script></body></html>
